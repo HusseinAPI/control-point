@@ -1,0 +1,69 @@
+<style>
+  h1 {
+    font-size: 3.125rem;
+    color: var(--gray-900);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+    margin: 0;
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: inherit;
+    position: relative;
+    background-color: rgb(233, 223, 223);
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+</style>
+
+<main class="main">
+  <div class="content">
+    <div class="header">
+      <h1>Assets Overview</h1>
+      <button class="button" (click)="openForm()">Add Asset</button>
+    </div>
+    <div class="asset-container">
+      <div class="asset-header">
+        <div>Asset Name</div>
+        <div>Type</div>
+        <div>Status</div>
+        <div></div>
+      </div>
+      <div class="asset-records" *ngFor="let asset of assets">
+        <div>{{ asset.name }}</div>
+        <div>{{ asset.type }}</div>
+        <div
+          class="status"
+          [ngStyle]="{
+            'background-color':
+              asset.status === 'RUNNING'
+                ? 'rgb(165, 165, 23)'
+                : asset.status === 'STOPPED'
+                ? 'rgb(237, 22, 22)'
+                : 'rgb(163, 224, 19)'
+          }"
+        >
+          {{ asset.status }}
+        </div>
+        <div>
+          <button class="button" [routerLink]="['/sensor-reading', asset.id]">
+            View Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-add-asset
+    *ngIf="showAddAssetForm"
+    (close)="closeForm()"
+    (submitAsset)="addAsset($event)"
+  >
+  </app-add-asset>
+</main>

@@ -1,0 +1,74 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 600px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal label {
+  padding: 5px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.modal input {
+  padding: 15px;
+  border-radius: 10px;
+  width: 400px;
+  border: 0;
+  outline: unset;
+  background-color: rgb(233, 223, 223);
+}
+
+.modal select {
+  padding: 15px;
+  border-radius: 10px;
+  width: 430px;
+  border: 0;
+  outline: unset;
+  background-color: rgb(233, 223, 223);
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-button {
+  background-color: blueviolet;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 0;
+  height: 35px;
+  cursor: pointer;
+  margin-left: 30px;
+}

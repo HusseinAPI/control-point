@@ -1,0 +1,33 @@
+<style></style>
+<div class="content">
+  <div class="pages"><span routerLink="/"> Asset</span> > Asset Details</div>
+  <div class="header">
+    <h1>{{ assetDetails?.name }}</h1>
+    <div
+      class="status"
+      [ngStyle]="{
+        'background-color':
+          assetDetails?.status === 'RUNNING'
+            ? 'rgb(165, 165, 23)'
+            : assetDetails?.status === 'STOPPED'
+            ? 'rgb(237, 22, 22)'
+            : 'rgb(163, 224, 19)'
+      }"
+    >
+      {{ assetDetails?.status }}
+    </div>
+  </div>
+  <div class="sensor-container">
+    <div>
+      <div class="value">{{ sensorDetails?.temperature }}&nbsp;°C</div>
+      <span>Temperature</span>
+    </div>
+    <div>
+      <div class="value">{{ sensorDetails?.pressure }}</div>
+      <span>Pressure</span>
+    </div>
+  </div>
+  <div class="update">
+    last updated:{{ sensorDetails?.timestamp | date : "yyyy-MM-dd HH:mm:ss" }}
+  </div>
+</div>
